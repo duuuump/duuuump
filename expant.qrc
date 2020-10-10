@@ -1,0 +1,28 @@
+<RCC>
+  <qresource prefix="/">
+    <file>resources/image/top.png</file>
+    <file>resources/image/top_s.png</file>
+    <file>resources/image/close.png</file>
+    <file>resources/image/close sep window.png</file>
+    <file>resources/image/menu-homezb.png</file>
+    <file>resources/image/edit.png</file>
+    <file>resources/image/save.png</file>
+    <file>resources/image/call.png</file>
+    <file>resources/image/hang up.png</file>
+    <file>resources/image/search.png</file>
+    <file>resources/image/all.png</file>
+    <file>resources/image/DLL.png</file>
+    <file>resources/image/net.png</file>
+    <file>resources/image/program.png</file>
+    <file>resources/image/call_record.png</file>
+    <file>resources/image/log.png</file>
+    <file>resources/image/setting.png</file>
+    <file>resources/fonts/fontawesome-webfont.ttf</file>
+    <file>resources/image/add_bottom.png</file>
+    <file>resources/image/add_left.png</file>
+    <file>resources/image/add_right.png</file>
+    <file>resources/image/add_top.png</file>
+    <file>resources/image/msg.png</file>
+    <file alias="resources/main.ico">resources/logo.ico</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,1607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EXPANTClass</class>
+ <widget class="QWidget" name="EXPANTClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>617</width>
+    <height>421</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>REEL</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="expant.qrc">
+    <normaloff>:/resources/main.ico</normaloff>:/resources/main.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*
+Ubuntu Style Sheet for QT Applications
+Author: Jaime A. Quiroga P.
+Company: GTRONICK
+Last updated: 09/10/2019 (dd/mm/yyyy), 12:31.
+Available at: https://github.com/GTRONICK/QSS/blob/master/Ubuntu.qss
+*/
+QWidget#EXPANTClass,QWidget[Form=true] {
+background-color:#F8F8F8;
+}
+
+QTableView::item:selected,QListView::item:selected,QTreeView::item:selected{
+	color:#6F6F6F;
+	background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 rgb(106, 184, 220),stop:1 rgb(46, 146, 189));
+}
+
+QCheckBox {
+	padding:2px;
+}
+#qt_calendar_calendarview {
+    background: white;
+}
+
+#qt_calendar_navigationbar {
+    background: rgb(215, 215, 215);
+}
+
+QLineEdit::disabled {
+	background-color:rgb(223, 223, 223)
+}
+
+QToolButton {
+    icon-size: 30px, 30px;
+    width: 80px;
+    height: 30px;
+}
+
+QToolButton#qt_calendar_prevmonth {
+    width: 20px;
+    qproperty-icon: url(:/resources/image/add_left.png);
+}
+
+QToolButton#qt_calendar_nextmonth {
+    width: 20px;
+    qproperty-icon: url(:/resources/image/add_right.png);
+}
+
+QToolButton#qt_calendar_monthbutton {
+    padding-right: 20px;
+}
+
+QToolButton#qt_calendar_yearbutton {
+    
+}
+
+QToolButton#qt_calendar_monthbutton::menu-indicator{
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    right: 3px;
+    width: 10px;
+}
+QCheckBox:hover {
+	border-radius:4px;
+	border-style:solid;
+	border-width:1px;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	border-color: rgb(255,150,60);
+	background-color:qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(190, 90, 50, 50), stop:1 rgba(250, 130, 40, 50));
+}
+QCheckBox::indicator:checked {
+	border-radius:4px;
+	border-style:solid;
+	border-width:1px;
+	border-color: rgb(246, 134, 86);
+  	background-color:rgb(246, 134, 86)
+}
+QCheckBox::indicator:unchecked {
+	border-radius:4px;
+	border-style:solid;
+	border-width:1px;
+	border-color:rgb(246, 134, 86);
+  	background-color:rgb(255,255,255);
+}
+QColorDialog {
+	background-color:#f0f0f0;
+}
+QComboBox {
+	color:rgb(81,72,65);
+	background: #ffffff;
+}
+QComboBox:editable {
+	background: #ffffff;
+	color: rgb(81,72,65);
+	selection-color:rgb(81,72,65);
+	selection-background-color: #ffffff;
+}
+QComboBox QAbstractItemView {
+	color:rgb(81,72,65);	
+	background: #ffffff;
+	selection-color: #ffffff;
+	selection-background-color: rgb(246, 134, 86);
+}
+QComboBox:!editable:on, QComboBox::drop-down:editable:on {
+	color:  #1e1d23;	
+	background: #ffffff;
+}
+QDateTimeEdit {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+}
+QLabel,QLineEdit,QTextEdit,QPlainTextEdit,QSpinBox,QGroupBox,QComboBox,QDateEdit,QTimeEdit,QDateTimeEdit,QSpinBox,QTreeView,QListView,QTableView,QTabWidget::pane{
+	color:#000000;
+}
+
+QDateEdit {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+	border-width: 1px;
+	border-radius: 3px;
+	border-bottom-color:rgb(220,220,220);
+	border-right-color:rgb(220,220,220);
+	border-left-color:rgb(220,220,220);
+	border-top-color:rgb(220,220,220);
+	border-style: solid;
+	selection-background-color:#EEEEEE;
+	selection-color:#6F6F6F;
+}
+QSpinBox::up-button,QDateEdit::up-button,QTimeEdit::up-button,QDateTimeEdit::up-button{
+	image:url(:/resources/image/add_top.png);
+}
+
+QSpinBox::down-button,QDateEdit::down-button,QTimeEdit::down-button,QDateTimeEdit::down-button{
+	image:url(:/resources/image/add_bottom.png);
+}
+
+QComboBox,QDateEdit,QTimeEdit,QDateTimeEdit,QSpinBox{
+	border-radius:3px;
+	border:1px solid rgb(220,220,220);
+	background:none;
+	selection-background-color:#E4E4E4;
+	selection-color:#000000;
+}
+
+QComboBox::drop-down,QDateEdit::drop-down,QTimeEdit::drop-down,QDateTimeEdit::drop-down{
+	subcontrol-position:top right;
+	width:15px;
+	border-left-width:0px;
+	border-left-style:solid;
+	border-top-right-radius:3px;
+	border-bottom-right-radius:3px;
+	border-left-color:rgb(220,220,220);
+}
+
+QComboBox::down-arrow,QDateEdit::down-arrow,QTimeEdit::down-arrow,QDateTimeEdit::down-arrow{
+	image:url(:/resources/image/add_bottom.png);
+}
+
+QDialog {
+	background-color:#f0f0f0;
+}
+QDoubleSpinBox {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+}
+QFontComboBox {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+}
+QLabel {
+	color:rgb(17,17,17);
+}
+QLineEdit {
+	background-color:rgb(255,255,255);
+	selection-background-color:rgb(236,116,64);
+	color:rgb(17,17,17);
+	border-width: 1px;
+	border-radius: 3px;
+	border-bottom-color:rgb(220,220,220);
+	border-right-color:rgb(220,220,220);
+	border-left-color:rgb(220,220,220);
+	border-top-color:rgb(220,220,220);
+	border-style: solid;
+}
+QMenuBar {
+	color:rgb(223,219,210);
+	background-color:rgb(65,64,59);
+}
+QMenuBar::item {
+	padding-top:4px;
+	padding-left:4px;
+	padding-right:4px;
+	color:rgb(223,219,210);
+	background-color:rgb(65,64,59);
+}
+QMenuBar::item:selected {
+	color:rgb(255,255,255);
+	padding-top:2px;
+	padding-left:2px;
+	padding-right:2px;
+	border-top-width:2px;
+	border-left-width:2px;
+	border-right-width:2px;
+	border-top-right-radius:4px;
+	border-top-left-radius:4px;
+	border-style:solid;
+	background-color:rgb(65,64,59);
+	border-top-color: rgb(47,47,44);
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(90, 87, 78, 255), stop:1 rgba(47,47,44, 255));
+	border-left-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(90, 87, 78, 255), stop:1 rgba(47,47,44, 255));
+}
+QMenu {
+	color:rgb(223,219,210);
+	backgr
+                        ound-color:rgb(65,64,59);
+}
+QMenu::item {
+	color:rgb(223,219,210);
+	padding-left:20px;
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-right:10px;
+}
+QMenu::item:selected {
+	color:rgb(255,255,255);
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(225, 108, 54, 255), stop:1 rgba(246, 134, 86, 255));
+	border-style:solid;
+	border-width:3px;
+	padding-left:17px;
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-right:7px;
+	border-bottom-color:qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(175,85,48,255), stop:1 rgba(236,114,67, 255));
+	border-top-color:qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
+	border-right-color:qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
+	border-left-color:qlineargradient(spread:pad, x1:1, y1:0.5, x2:0, y2:0.5, stop
+                        :0 rgba(253,156,113,255), stop:1 rgba(205,90,46, 255));
+}
+QPlainTextEdit {
+	border-width: 1px;
+	border-style: solid;
+	border-color:transparent;
+	color:rgb(17,17,17);
+	selection-background-color:rgb(236,116,64);
+}
+QProgressBar {
+	text-align: center;
+}
+
+QPushButton{
+	color:rgb(17,17,17);
+	border-width: 1px;
+	border-radius: 3px;
+	border-bottom-color: rgb(220,220,220);
+	border-right-color:rgb(220,220,220);
+	border-left-color:rgb(220,220,220);
+	border-top-color:rgb(220,220,220);
+	border-style: solid;
+	padding: 4px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(220, 220, 220, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:hover{
+	color:rgb(17,17,17);
+	border-width: 1px;
+	border-radius:6px;
+	border-top-color: rgb(255,150,60);
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 255));
+	border-left-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 255));
+	border-bottom-color: rgb(200,70,20);
+	border-style: solid;
+	padding: 2px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(220, 220, 220, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:default{
+	color:rgb(17,17,17);
+	border-width: 1px;
+	border-radius:6px;
+	border-top-color: rgb(255,150,60);
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 255));
+	border-left-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 255));
+	border-bottom-color: rgb(200,70,20);
+	border-style: solid;
+	padding-left:10px;
+	padding-right:10px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(220, 220, 22
+                        0, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:pressed{
+	color:rgb(17,17,17);
+	border-width: 1px;
+	border-radius: 6px;
+	border-width: 1px;
+	border-top-color: rgba(255,150,60,200);
+	border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 200));
+	border-left-color:  qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgba(200, 70, 20, 255), stop:1 rgba(255,150,60, 200));
+	border-bottom-color: rgba(200,70,20,200);
+	border-style: solid;
+	padding: 2px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:0, x2:0.5, y2:1, stop:0 rgba(220, 220, 220, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:disabled{
+	color:rgb(174,167,159);
+	border-width: 1px;
+	border-radius: 6px;
+	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(200, 200, 200, 255), stop:1 rgba(230, 230, 230, 255));
+}
+QRadioButton {
+	paddi
+                        ng: 1px;
+}
+QRadioButton::indicator:checked {
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-radius:5px;
+	border-width: 1px;
+	border-color: rgba(246, 134, 86, 255);
+	color: #a9b7c6;
+	background-color:rgba(246, 134, 86, 255);
+}
+QRadioButton::indicator:!checked {
+	height: 10px;
+	width: 10px;
+	border-style:solid;
+	border-radius:5px;
+	border-width: 1px;
+	border-color: rgb(246, 134, 86);
+	color: #a9b7c6;
+	background-color: transparent;
+}
+QScrollArea {
+	color: #FFFFFF;
+	background-color:#f0f0f0;
+}
+QSlider::groove {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+}
+QSlider::groove:horizontal {
+	height: 5px;
+	background: rgb(246, 134, 86);
+}
+QSlider::groove:vertical {
+	width: 5px;
+	background: rgb(246, 134, 86);
+}
+QSlider::handle:horizontal {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	width: 12px;
+	margin: -5px 0;
+	border-radius: 7px;
+}
+QSlider::handle:vertical {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	height: 12px;
+	margin: 0 -5px;
+	border-radius: 7px;
+}
+QSlider::add-page:horizontal {
+ 	background: white;
+}
+QSlider::add-page:vertical {
+	background: white;
+}
+QSlider::sub-page:horizontal {
+	background: rgb(246, 134, 86);
+}
+QSlider::sub-page:vertical {
+  	background: rgb(246, 134, 86);
+}
+QStatusBar {
+	color:rgb(81,72,65);
+}
+QSpinBox {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+}
+QScrollBar:horizontal {
+	max-height: 20px;
+	border: 1px transparent grey;
+	margin: 0px 20px 0px 20px;
+}
+QScrollBar::handle:horizontal {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(207,207,207);
+	border-radius: 7px;
+	min-width: 25px;
+}
+QScrollBar::handle:horizontal:hover {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(255,150,60);
+	border-radius: 7px;
+	min-width: 25px;
+}
+QScrollBar::add-line:horizontal {
+  	border: 1px solid;
+  	border-color: rgb(207,207,207);
+  	border-top-right-radius: 7px;
+  	border-top-left-radius: 7px;
+  	border-bottom-right-radius: 7px;
+  	background: rgb(255, 255, 255);
+  	width: 20px;
+  	subcontrol-position: right;
+  	subcontrol-origin: margin;
+}
+QScrollBar::add-line:horizontal:hover {
+  	border: 1px solid;
+  	border-top-right-radius: 7px;
+  	border-top-left-radius: 7px;
+  	border-bottom-right-radius: 7px;
+  	border-color: rgb(255,150,60);
+  	background: rgb(255, 255, 255);
+  	width: 20px;
+  	subcontrol-position: right;
+  	subcontrol-origin: margin;
+}
+QScrollBar::add-line:horizontal:pressed {
+  	border: 1px solid grey;
+  	border-top-left-radius: 7px;
+  	border-top-right-radius: 7px;
+  	border-bottom-right-radius: 7px;
+  	background: rgb(231,231,231);
+  	width: 20px;
+  	subcontrol-position: right;
+  	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal {
+  	border: 1px solid;
+  	border-color: rgb(207,207,207);
+  	border-top-right-radius: 5px;
+  	border-top-left-radius: 5px;
+  	border-bottom-left-radius: 5px;
+  	background: rgb(255, 255, 255);
+  	width: 20px;
+  	subcontrol-position: left;
+  	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal:hover {
+  	border: 1px solid;
+  	border-color: rgb(255,150,60);
+  	border-top-right-radius: 5px;
+  	border-top-left-radius: 5px;
+  	border-bottom-left-radius: 5px;
+  	background: rgb(255, 255, 255);
+  	width: 20px;
+  	subcontrol-position: left;
+  	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal:pressed {
+  	border: 1px solid grey;
+  	border-top-right-radius: 7px;
+  	border-top-left-radius: 7px;
+  	border-bottom-left-radius: 7px;
+  	background: rgb(231,231,231);
+  	width: 20px;
+  	subcontrol-position: left;
+  	subcontrol-origin: margin;
+}
+QScrollBar::left-arrow:horizontal {
+  	border: 1px transparent grey;
+  	border-top-left-radius: 3px;
+  	border-bottom-left-radius: 3px;
+  	width: 6px;
+  	height: 6px;
+  	background: rgb(230,230,230);
+}
+QScrollBar::right-arrow:horizontal {
+	border: 1px transparent grey;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+  	width: 6px;
+  	height: 6px;
+ 	background: rgb(230,230,230);
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+ 	background: none;
+} 
+QScrollBar:vertical {
+	max-width: 10px;
+	border: 1px transparent grey;
+	margin: 20px 0px 20px 0px;
+}
+QScrollBar::add-line:vertical {
+	border: 1px solid;
+	border-color: rgb(220,220,220);
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	background: rgb(255, 255, 255);
+  	height: 20px;
+  	subcontrol-position: bottom;
+  	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {
+  	border: 1px solid;
+  	border-color: rgb(255,150,60);
+  	border-bottom-right-radius: 2px;
+  	border-bottom-left-radius: 2px;
+  	background: rgb(255, 255, 255);
+  	height: 20px;
+  	subcontrol-position: bottom;
+  	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:pressed {
+  	border: 1px solid grey;
+  	border-bottom-left-radius: 2px;
+  	border-bottom-right-radius: 2px;
+  	background: rgb(231,231,231);
+  	height: 20px;
+  	subcontrol-position: bottom;
+  	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+  	border: 1px solid;
+  	border-color: rgb(220,220,220);
+  	border-top-right-radius:2px;
+  	border-top-left-radius:2px;
+  	background: rgb(255, 255, 255);
+  	height: 20px;
+  	subcontrol-position: top;
+  	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {
+  	border: 1px solid;
+  	border-color: rgb(255,150,60);
+  	border-top-right-radius: 2px;
+  	border-top-left-radius: 2px;
+	background: rgb(255, 255, 255);
+  	height: 20px;
+  	subcontrol-position: top;
+  	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:pressed {
+  	border: 1px solid grey;
+  	border-top-left-radius: 2px;
+  	border-top-right-radius: 2px;
+  	background: rgb(231,231,231);
+ 	height: 20px;
+  	subcontrol-position: top;
+  	subcontrol-origin: margin;
+}
+QScrollBar::handle:vertical {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(220,220,220);
+	border-radius: 2px;
+	min-height: 15px;
+}
+QScrollBar::handle:vertical:hover {
+	background: rgb(253,253,253);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(255,150,60);
+	border-radius: 2px;
+	min-height: 15px;
+}
+QScrollBar::up-arrow:vertical {
+	border: 1px transparent grey;
+  	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+  	width: 6px;
+  	height: 6px;
+  	background: rgb(230,230,230);
+}
+QScrollBar::down-arrow:vertical {
+  	border: 1px transparent grey;
+  	border-bottom-left-radius: 3px;
+  	border-bottom-right-radius: 3px;
+  	width: 6px;
+  	height: 6px;
+  	background: rgb(230,230,230);
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+  	background: none;
+}
+QTabWidget {
+	color:rgb(100,100,100);
+	background-color:rgb(250,250,250);
+}
+QTabWidget::pane {
+	border-color: rgb(220,220,220);
+	background-color:rgb(247,246,246);
+	border-style: solid;
+	border-width: 1px;
+  	border-radius: 5px;
+	border-top-left-radius:0px;
+}
+QTabBar::tab {
+	padding-left:8px;
+	padding-right:8px;
+	padding-bottom:5px;
+	padding-top:5px;
+	color:rgb(100,100,100);
+  	background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(190,190,190,255), stop:1 rgba(255,255,255,255));
+	border-style: solid;
+	border-width: 1px;
+  	border-top-right-radius:4px;
+	border-top-left-radius:4px;
+	border-top-color: rgb(220,220,220);
+	border-left-color: rgb(220,220,220);
+	border-right-color: rgb(220,220,220);
+	border-bottom-color: transparent;
+}
+
+QTabBar::tab:selected, QTabBar::tab:last:selected, QTabBar::tab:hover {
+  	background-color:rgb(230,230,230);
+  	margin-left: 0px;
+  	margin-right: 1px;
+}
+QTabBar::tab:!selected {
+	margin-top: 1px;
+	margin-right: 1px;
+}
+QTextEdit {
+	border-width: 1px;
+	border-style: solid;
+	border-color:transparent;
+	color:rgb(17,17,17);
+	selection-background-color:rgb(236,116,64);
+}
+QTimeEdit {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+}
+QToolBox {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+}
+QToolBox::tab {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+}
+QToolBox::tab:selected {
+	color:rgb(81,72,65);
+	background-color: #ffffff;
+}</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>14</x>
+     <y>44</y>
+     <width>589</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#tab1,QWidget#tab2,QWidget#tab3 {background-color:#F0F0F0;border-radius:6px;border-top-left-radius:0px;}</string>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Rounded</enum>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>14</width>
+     <height>14</height>
+    </size>
+   </property>
+   <property name="documentMode">
+    <bool>false</bool>
+   </property>
+   <widget class="QWidget" name="tab1">
+    <attribute name="icon">
+     <iconset resource="expant.qrc">
+      <normaloff>:/resources/image/call_record.png</normaloff>:/resources/image/call_record.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string>拨号记录</string>
+    </attribute>
+    <widget class="QTableView" name="tableView">
+     <property name="geometry">
+      <rect>
+       <x>3</x>
+       <y>47</y>
+       <width>581</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView#tableView,QTableView#tableView2{background-color:#E8FAFF;border-radius:3px}</string>
+     </property>
+     <property name="textElideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <property name="showGrid">
+      <bool>true</bool>
+     </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+      <bool>true</bool>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>4</x>
+       <y>8</y>
+       <width>581</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="leftMargin">
+       <number>3</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>呼出时间:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="minimumSize">
+         <size>
+          <width>369</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="tabletTracking">
+         <bool>false</bool>
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>1979</year>
+          <month>1</month>
+          <day>1</day>
+         </datetime>
+        </property>
+        <property name="displayFormat">
+         <string>yyyy-M-d</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="minimumSize">
+         <size>
+          <width>70</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>查询</string>
+        </property>
+        <property name="icon">
+         <iconset resource="expant.qrc">
+          <normaloff>:/resources/image/search.png</normaloff>:/resources/image/search.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>101</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="leftMargin">
+       <number>3</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="maximumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>电话号码:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="cursorMoveStyle">
+         <enum>Qt::LogicalMoveStyle</enum>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="tokenInput">
+        <property name="maximumSize">
+         <size>
+          <width>0</width>
+          <height>16777215</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="sizeIncrement">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>拨号</string>
+        </property>
+        <property name="icon">
+         <iconset resource="expant.qrc">
+          <normaloff>:/resources/image/call.png</normaloff>:/resources/image/call.png</iconset>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>挂机</string>
+        </property>
+        <property name="icon">
+         <iconset resource="expant.qrc">
+          <normaloff>:/resources/image/hang up.png</normaloff>:/resources/image/hang up.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab2">
+    <attribute name="icon">
+     <iconset resource="expant.qrc">
+      <normaloff>:/resources/image/setting.png</normaloff>:/resources/image/setting.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string>配置</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>10</y>
+       <width>571</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>话机配置</string>
+     </property>
+     <widget class="QWidget" name="formLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>551</width>
+        <height>120</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <property name="horizontalSpacing">
+        <number>6</number>
+       </property>
+       <property name="verticalSpacing">
+        <number>10</number>
+       </property>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="minimumSize">
+          <size>
+           <width>90</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>拨号音</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>自动接听</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>出局码</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>振铃</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="checkBox">
+         <property name="text">
+          <string>关</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="checkBox_2">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>关</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="checkBox_3">
+         <property name="text">
+          <string>关</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="lineEdit_2">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>160</y>
+       <width>571</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>网络配置</string>
+     </property>
+     <widget class="QWidget" name="formLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>551</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="labelAlignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+       <property name="verticalSpacing">
+        <number>12</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="minimumSize">
+          <size>
+           <width>90</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>监听端口</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_3">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>录音上传地址</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_4"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>260</y>
+       <width>100</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>100</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>编辑</string>
+     </property>
+     <property name="icon">
+      <iconset resource="expant.qrc">
+       <normaloff>:/resources/image/edit.png</normaloff>:/resources/image/edit.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>117</x>
+       <y>260</y>
+       <width>91</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>将扫描当前记录中所有异常、失败、未上传录音，尝试上传！</string>
+     </property>
+     <property name="text">
+      <string>录音扫描</string>
+     </property>
+     <property name="icon">
+      <iconset resource="expant.qrc">
+       <normaloff>:/resources/image/search.png</normaloff>:/resources/image/search.png</iconset>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab3">
+    <attribute name="icon">
+     <iconset resource="expant.qrc">
+      <normaloff>:/resources/image/log.png</normaloff>:/resources/image/log.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string>日志</string>
+    </attribute>
+    <widget class="QTableView" name="tableView2">
+     <property name="geometry">
+      <rect>
+       <x>3</x>
+       <y>35</y>
+       <width>581</width>
+       <height>265</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView#tableView2{background-color:#E8FAFF;border-radius:3px}</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>2</x>
+       <y>2</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QComboBox" name="comboBox">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>所有类型</string>
+         </property>
+         <property name="icon">
+          <iconset resource="expant.qrc">
+           <normaloff>:/resources/image/all.png</normaloff>:/resources/image/all.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>日志类型【PROGRAM】</string>
+         </property>
+         <property name="icon">
+          <iconset resource="expant.qrc">
+           <normaloff>:/resources/image/program.png</normaloff>:/resources/image/program.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>日志类型【SOCKET】</string>
+         </property>
+         <property name="icon">
+          <iconset resource="expant.qrc">
+           <normaloff>:/resources/image/net.png</normaloff>:/resources/image/net.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>日志类型【PHONE】</string>
+         </property>
+         <property name="icon">
+          <iconset resource="expant.qrc">
+           <normaloff>:/resources/image/DLL.png</normaloff>:/resources/image/DLL.png</iconset>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>13</x>
+     <y>377</y>
+     <width>591</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="statusIcon1">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>CrossCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="status1">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>180</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>话机状态</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="maximumSize">
+       <size>
+        <width>120</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>SOCKET端口【4472】</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_11">
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>160</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>110</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <widget class="QProgressBar" name="progressBar">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>6</y>
+         <width>160</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>160</width>
+         <height>18</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>WaitCursor</cursorShape>
+       </property>
+       <property name="mouseTracking">
+        <bool>false</bool>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="value">
+        <number>50</number>
+       </property>
+       <property name="textVisible">
+        <bool>true</bool>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="textDirection">
+        <enum>QProgressBar::TopToBottom</enum>
+       </property>
+       <property name="format">
+        <string>录音上传%p%</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="maximumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>摘机</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="widget_title" native="true">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>597</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#widget_title{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #FFFFFF,stop:1 #D2D2D2);
+border-top-right-radius:4px;
+border-top-left-radius:4px;
+}</string>
+   </property>
+   <widget class="QPushButton" name="close_btn">
+    <property name="geometry">
+     <rect>
+      <x>537</x>
+      <y>0</y>
+      <width>30</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#close_btn {
+border:0px;
+background-color:transparent;
+}
+QPushButton#close_btn:hover {
+border:0px;
+border-radius:0px;
+background-color:white;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="expant.qrc">
+      <normaloff>:/resources/image/close sep window.png</normaloff>:/resources/image/close sep window.png</iconset>
+    </property>
+   </widget>
+   <widget class="QLabel" name="title_label">
+    <property name="geometry">
+     <rect>
+      <x>36</x>
+      <y>5</y>
+      <width>501</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>13</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>UI</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="icon_label">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>7</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="expant.qrc">:/resources/image/menu-homezb.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="shutdown_btn">
+    <property name="geometry">
+     <rect>
+      <x>567</x>
+      <y>0</y>
+      <width>30</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#shutdown_btn {
+border:0px;
+border-top-right-radius:4px;
+background-color:transparent;
+}
+QPushButton#shutdown_btn:hover {
+border:0px;
+border-radius:0px;
+border-top-right-radius:4px;
+background-color:red;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="expant.qrc">
+      <normaloff>:/resources/image/close.png</normaloff>:/resources/image/close.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="top_btn">
+    <property name="geometry">
+     <rect>
+      <x>507</x>
+      <y>0</y>
+      <width>30</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#top_btn {
+border:0px;
+background-color:transparent;
+}
+QPushButton#top_btn:hover {
+border:0px;
+border-radius:0px;
+background-color:white;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="expant.qrc">
+      <normaloff>:/resources/image/top.png</normaloff>:/resources/image/top.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="expant.qrc"/>
+ </resources>
+ <connections/>
+</ui>
