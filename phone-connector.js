@@ -32,7 +32,7 @@ const PhoneConnector = (function () {
                     }
                     let href = window.location.href;
                     href = href.substring(0, href.lastIndexOf("/") + 1);
-                    href += 'audioController.do?upload';
+                    href += '--上传地址--';
                     this[_ws].send(JSON.stringify({cmd: 'set_upload', data: href}));
                     _count_retry = 0;
                     _off_tip_f = true;
