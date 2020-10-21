@@ -27,6 +27,8 @@ QString hardwareEncryption("{\"board\":\"%1\",\"cpu\":\"%2\",\"bios\":\"%3\",\"m
 const char* AUDIO_DIR = "c:/phone_connector/audio";
 const char* DIR_PREFIX = "c:/phone_connector/";
 int last_phone_msg = 0;
+int cmd_busy_flg = 0;
+int hook_flg = 0;
 
 void EXPANT::mousePressEvent(QMouseEvent* e)
 {
@@ -415,8 +417,11 @@ void EXPANT::upload()
     multiPart->append(filePart);
     multiPart->setParent(_uploadManager);
     std::map<QString, QString> configs = sqllite.listConfig();
+    
     QUrl url(configs["UPLOAD_ADDR"]);
-    QNetworkRequest request(url);
+    qDebug() << url.toString();
+    //QUrl::fromPercentEncoding(configs["UPLOAD_ADDR"].toLatin1());
+    QNetworkRequest request(QUrl::fromPercentEncoding(configs["UPLOAD_ADDR"].toLatin1()));
     QSslConfiguration config = QSslConfiguration::defaultConfiguration();
     config.setPeerVerifyMode(QSslSocket::VerifyNone);
     request.setSslConfiguration(config);
@@ -537,10 +542,23 @@ void EXPANT::editConfig()
 // 摘机（接听）
 void EXPANT::hook() 
 {
+    if (cmd_busy_flg)
+    {
+        ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"hook\", \"res\":\"重复指令\"}").toStdString());
+        return;
+    }
+    if (hook_flg)
+    {
+        ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"hook\", \"res\":\"重复摘机\"}").toStdString());
+        return;
+    }
+    hook_flg = 1;
+    cmd_busy_flg = 1;
     int status = QueryPhoneStatus(0);
     if (status)
     {
-        ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"call\", \"res\":\"话机正忙\"}").toStdString());
+        ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"hook\", \"res\":\"话机正忙\"}").toStdString());
+        cmd_busy_flg = 0;
         return;
     }
     ui.pushButton_2->setProperty("can", true);
@@ -602,15 +620,23 @@ void EXPANT::hook()
     }
     sqllite.insertLog(Table::Log("PROGRAM", QString::fromLocal8Bit("接听"), std::to_string(hook).c_str()));
     logModel->select();
+    cmd_busy_flg = 0;
 }
 
 // 拨号
 void EXPANT::call()
 {
+    if (cmd_busy_flg)
+    {
+        ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"call\", \"res\":\"重复指令\"}").toStdString());
+        return;
+    }
+    cmd_busy_flg = 1;
     int status = QueryPhoneStatus(0);
     if (status)
     {
         ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"call\", \"res\":\"话机正忙\"}").toStdString());
+        cmd_busy_flg = 0;
         return; 
     }
     ui.pushButton_2->setProperty("can", true);
@@ -639,23 +665,13 @@ void EXPANT::call()
     QByteArray data = phone.toLatin1();
     const char* p = data.constData();
     int out = -1;
-    if (not_local)
-    {
-        //out = StartDial(0, "");
-        OffHookCtrl(0);
-        //out = SendDTMF(0, "0");
-        Sleep(1000);
-        out = SendDTMF(0, p);
-    }
-    else
-    {
-        OffHookCtrl(0);
-        Sleep(1000);
-        out = SendDTMF(0, p);
-    }
+    OffHookCtrl(0);
+    Sleep(1000);
+    out = SendDTMF(0, p);
 
     QString path(QString::fromStdString(uuid));
     path.append(".wav");
+    cmd_busy_flg = 0;
     if (out == 0)
     {
         Table::CallRecord r;
@@ -690,15 +706,22 @@ void EXPANT::call()
         ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"call\", \"res\":\"拨号失败\"}").toStdString());
     }
     sqllite.insertLog(Table::Log("PROGRAM", QString::fromLocal8Bit("拨号"), std::to_string(out).c_str()));
-    logModel->select();   
+    logModel->select();
 }
 
 // 结束通话
 void EXPANT::end()
 {
+    if (cmd_busy_flg)
+    {
+        ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"hang\", \"res\":\"重复指令\"}").toStdString());
+        return;
+    }
+    cmd_busy_flg = 1;
     if (!ui.pushButton_2->property("can").toBool())
     {
         ServerSC::Instance()->Replay(QString::fromLocal8Bit("{\"event\":\"hang\", \"res\":\"已挂断\"}").toStdString());
+        cmd_busy_flg = 0;
         return;
     }
     ui.lineEdit->setDisabled(false);
@@ -770,6 +793,8 @@ void EXPANT::end()
     }
     sqllite.insertLog(Table::Log("PROGRAM", QString::fromLocal8Bit("挂机"), std::to_string(hang).c_str()));
     logModel->select();
+    cmd_busy_flg = 0;
+    hook_flg = 0;
 }
 
 void EXPANT::call(QString phone, QString token)
@@ -894,6 +919,7 @@ bool EXPANT::nativeEventFilter(const QByteArray& eventType, void* message, long*
                     ui.pushButton->setDisabled(false);
                     ui.pushButton_2->setDisabled(true);
                 }
+                hook_flg = 0;
                 break;
             case 705:
                 phone = (char*)l;
